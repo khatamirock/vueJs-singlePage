@@ -5,6 +5,7 @@ var app = {
     data() {
 
         return {
+            currentTime: '',
             activePage: 0,
             isDark: false,
             theme: 'light',
@@ -19,6 +20,34 @@ var app = {
             msg: 'home apge'
 
         }
+    },
+    mounted() {
+        // Update time every second
+        setInterval(() => {
+            // Get current time
+            const now = new Date();
+            let hours = now.getHours();
+            let amPm = 'AM';
+
+            // Convert to 12-hour format
+            if (hours > 12) {
+                hours -= 12;
+                amPm = 'PM';
+            }
+
+            // Handle midnight and noon
+            if (hours === 0) {
+                hours = 12;
+            } else if (hours === 12) {
+                amPm = 'PM';
+            }
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            // Update currentTime data property
+            this.currentTime = `${hours}:${minutes}:${seconds} ${amPm}`;
+        }, 1000);
     },
     methods: {
         kire: function () {

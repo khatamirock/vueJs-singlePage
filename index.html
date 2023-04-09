@@ -30,6 +30,10 @@
     </nav>
     <div id="app" class="appInf">
 
+        <div>
+            <p>Current Time with Seconds: {{ currentTime }}</p>
+        </div>
+
         <page-body :page="page[activePage]"></page-body>
         <div class="txtarea-btn">
             <textarea v-model="note"></textarea>
