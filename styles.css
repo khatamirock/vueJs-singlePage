@@ -22,7 +22,7 @@
 }
 
 .navbar-collapse .navbar-nav .bold {
-  font-style: italic;
+  font-weight: bold;
 }
 
 .navbar-collapse .navbar-nav button {

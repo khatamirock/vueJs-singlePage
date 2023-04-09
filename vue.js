@@ -40,8 +40,8 @@ var app = {
         makegreen: function (ind) {
             if (!this.clicked.includes(ind)) { this.clicked.push(ind); }
             else {
-                this.clicked.splice(ind - 1, 1);
-                // console.log('baddddd', ind);
+                this.clicked = this.clicked.filter(i => i !== ind);
+                `         console.log('baddddd', ind);`
             }
             console.log(this.clicked);
             // this.noteCol = this.noteCol == 'lired' ? 'ligreen' : 'lired';
