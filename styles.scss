@@ -5,9 +5,46 @@
     padding: 49px;
 }
 
+.navbar-collapse {
 
-.navbar-nav {
-    .bold {
-        font-weight: bold;
+    display: flex !important;
+    justify-content: space-between;
+
+    .navbar-nav {
+        .bold {
+            font-style: italic;
+        }
+
+        button {
+            margin-right: 20px !important;
+        }
     }
+}
+
+
+.txtarea-btn {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    textarea {
+        width: 55vw;
+        /* height: 98px;*/
+    }
+}
+
+.list-group {
+    width: 67vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+.ligreen {
+    background: aquamarine !important;
+}
+
+.lired {
+    background: antiquewhite !important;
+
 }

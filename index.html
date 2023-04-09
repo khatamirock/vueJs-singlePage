@@ -13,27 +13,37 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav :class="[`navbar-${theme} bg-${theme}`, 'navbar' ,'navbar-expand-lg']">
         <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
 
-                <li class="nav-item" v-for="(dat,ind) in page" :class="{bold : activePage==ind}">
+                <li class="nav-item" v-for="(dat    ,ind) in page" :class="{bold : activePage==ind}">
                     <a class="nav-link" :href="dat.link" @click.prevent="activePage = ind">{{ dat.title }}</a>
 
                 </li>
 
             </ul>
+            <button @click.prevent="changeTheme" class="btn bg-secondary">kire vaii</button>
         </div>
     </nav>
     <div id="app" class="appInf">
 
-        <h1>{{page[activePage].title}} Page !!</h1>
-        <p>{{page[activePage].content}}</p>
+        <page-body :page="page[activePage]"></page-body>
+        <div class="txtarea-btn">
+            <textarea v-model="note"></textarea>
+            <!-- Button that triggers the notesave method with the value of 'note' data property -->
+            <button class="btn btn-dark" @click="notesave">Save Note</button>
+
+        </div>
+        <ul class="list-group">
+            <li v-for="(note,idx) in notes" :key="idx" class="list-group-item"
+                :class="clicked.includes(idx) ? 'ligreen' : 'lired'" @click="makegreen(idx)">
+                <h4>{{note}}</h4>
+            </li>
+
+        </ul>
     </div>
 
 
@@ -46,9 +56,9 @@
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="./vue.js"></script>
 
 
